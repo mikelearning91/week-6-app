@@ -90,13 +90,16 @@ ul {
 	text-align: center;
     box-sizing: border-box;
     padding: .1em;
-/*    margin: .125em;
-    margin-bottom: 2em;*/
+    margin-bottom: 1.9em;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+/*    margin-bottom: 2em;*/
 }
 .gif-thumb {
 	width: 100%;
     height: auto;
-    margin: 5px 0 1.9em 0;
+    margin: 5px 0 0 0;
     border: 3px solid rgb(137, 137, 137);
 }
 
@@ -110,8 +113,12 @@ ul {
 }
 
 .rating {
+	font-family: Roboto !important;
 	text-align: center;
-	font-size: 18px;
+	font-size: 17px;
+	display:inline;
+    line-height: 29px;
+	float: left;
 }
 
 #gifsDisplay {
@@ -153,6 +160,18 @@ ul {
 
 #movie-input:focus {
 	outline: none;
+}
+
+#copyButton {
+	font-family: Roboto !important;
+	border: 0;
+    border-radius: 4px;
+    margin: 0;
+    line-height: 17px;
+    font-size: 11px;
+    background: #dedede;
+    display: inline;
+    float: right;
 }
 
 @media screen and (max-width:768px) {
