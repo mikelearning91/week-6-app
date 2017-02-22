@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Raleway|Roboto" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="assets/css/style.css">
+  <link type="text/css" rel="stylesheet" href="assets/css/reset.css">
+  <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+  <title>Movie GIFs</title>
+</head>
+
+<body>
+    <header>
+      <h1>Search a Movie, Find a GIF</h1>
+    </header>   
+
+  <div class="container">
+
+    <form id="movie-form"><!-- Search for a new movie -->
+      
+      <input type="text" id="movie-input" placeholder="Search a Movie"><input id="add-movie" type="submit" value="GO">
+      <br>
+      <div id="message"></div>
+
+    </form>
+
+    <div id="movies-view"></div><!-- Movies will get dumped here -->
+    <div id="gifsDisplay"></div><!-- Movie GIFs will get dumped here -->
+
+  </div>
+
+<script src="assets/javascript/app.js"></script>
+</body>
+</html>
