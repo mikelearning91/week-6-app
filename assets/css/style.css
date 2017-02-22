@@ -19,7 +19,7 @@ header {
 }
 
 h1 {
-	font-size:28px !important;
+	font-size:33px !important;
 	font-family: Josefin Sans !important;
 }
 
@@ -30,6 +30,14 @@ ul {
     padding: 10px !important;
     padding-left: 13px !important;
     color: #b24f47;
+}
+
+.center {
+	text-align: center;
+}
+
+#poweredBy {
+	font-size: 12px;
 }
 
 .messageAlert {

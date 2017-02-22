@@ -1,5 +1,5 @@
 // Initial array of giph Movies
-var giphMovies = ["", "The Matrix", "The Notebook", "Mr. Nobody", "The Lion King"];
+var giphMovies = ["", "The Matrix", "The Notebook", "Mr. Nobody", "The Lion King", "Titanic", "The Accountant", "Homeward Bound"];
 var addGiphMovie = [];
 var hasRating;
 var hasEmbed;
@@ -11,7 +11,7 @@ var messageAlert;
 function displayMovieGifs() {
           $("#gifsDisplay").empty();
           var addGiphMovie = $(this).attr("data-name");
-          var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + addGiphMovie + "&limit=50&api_key=dc6zaTOxFJmzC";
+          var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + addGiphMovie + "&limit=10&api_key=dc6zaTOxFJmzC";
 
           $.ajax({
                 url: queryURL,
@@ -37,12 +37,12 @@ function displayMovieGifs() {
                     imgContainer.prepend('<span class="rating">Rated: ' + hasRating + '</span>');
                   }
 
-                  hasEmbed = response.data[i].embed_url;
-                  if(response.data[i].embed_url === '') {
-                    console.log("no embed_url");
-                  } else {
-                    imgContainer.prepend('<input id="embedURL" value=' + hasEmbed + ' readonly></input><button id="copyButton">Copy Embed URL</button>');
-                  }
+                  // hasEmbed = response.data[i].embed_url;
+                  // if(response.data[i].embed_url === '') {
+                  //   console.log("no embed_url");
+                  // } else {
+                  //   imgContainer.prepend('<input id="embedURL" value=' + hasEmbed + ' readonly></input><button id="copyButton">Copy Embed URL</button>');
+                  // }
                   $('#gifsDisplay').append(imgContainer);
                 } //end for loop
 
@@ -129,10 +129,10 @@ $("#add-movie").on("click", function(event) {
 
 });
 
-$('#copyButton').on("click", function(e) {
-  e.preventDefault();
-  document.execCommand('copy', false, $('#embedURL').val());
-});
+// $('#copyButton').on("click", function(e) {
+//   e.preventDefault();
+//   document.execCommand('copy', false, $('#embedURL').val());
+// });
 
 // Function for displaying the movie GIFs on click of movie name button.
 // A click event listener to all elements with the class "movie".
