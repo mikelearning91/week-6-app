@@ -18,7 +18,7 @@ var clipboard = new Clipboard('.btn');
 function displayMovieGifs() {
           $("#gifsDisplay").empty(); // Will empty gif display area on each new movie button click
           var addGiphMovie = $(this).attr("data-name");
-          var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + addGiphMovie + "&limit=10&api_key=dc6zaTOxFJmzC";
+          var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + addGiphMovie + "&limit=10&api_key=dc6zaTOxFJmzC";
           // Ajax call to giphy api
           $.ajax({
                 url: queryURL,
