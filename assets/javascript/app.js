@@ -53,7 +53,7 @@ function displayMovieGifs() {
                     imgContainer.prepend('<span class="rating">Rated: ' + hasRating + '</span>');
                   }
 
-                  $('#gifsDisplay').append(imgContainer);
+                  $('#gifsDisplay').hide().append(imgContainer).fadeIn();
                 } // End for loop
 
             $('.gif-thumb').on('click', gifClick); // calls function to play/pause GIF on click
@@ -137,12 +137,19 @@ $("#add-movie").on("click", function(event) {
 
 }); // End onclick function
 
+// Hide directions on first movie click
+function hideDirections() {
+  $("#directions").fadeOut('fast');
+};
+
 // Function for displaying the movie GIFs on click of movie name button.
 // A click event listener to all elements with the class "movie".
 // Event listener for the document itself because it will
 // work for dynamically generated elements.
 // $(".movies").on("click") will only add listeners to elements that are on the page at that time.
 $(document).on("click", ".movie", displayMovieGifs);
+// calling functions to hide directions on first .movie click
+$(document).on("click", ".movie", hideDirections);
 
 // Calling the renderButtons function to display the intial buttons
 renderButtons();

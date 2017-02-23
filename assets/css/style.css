@@ -32,6 +32,10 @@ ul {
     color: #b24f47;
 }
 
+#directions {
+    margin-top: 0;
+}
+
 .center {
 	text-align: center;
 }
