@@ -4,20 +4,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Raleway|Roboto" rel="stylesheet">
-  <link type="text/css" rel="stylesheet" href="assets/css/style.css">
+  <!-- Reset CSS -->
   <link type="text/css" rel="stylesheet" href="assets/css/reset.css">
+  <!-- Bootstap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Raleway|Roboto" rel="stylesheet">
+  <!-- Custom Styles -->
+  <link type="text/css" rel="stylesheet" href="assets/css/style.css">
+  <!-- jQuery -->
   <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+  <!-- Clipboard script -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.0/clipboard.min.js"></script>
   <title>Movie GIF Finder</title>
 </head>
 
 <body>
-    <header>
+    <header><!-- Header -->
       <h1>Movie GIF Finder</h1>
       <label id="poweredBy">Powered by GIPHY</label>
-    </header>   
+    </header><!-- End header -->
 
   <div class="container">
 
@@ -25,15 +31,15 @@
       
       <input type="text" id="movie-input" placeholder="Search a movie"><input id="add-movie" type="submit" value="GO">
       <br>
-      <div id="message"></div>
+      <div id="message"></div><!-- Search error pop-up message -->
 
     </form>
 
     <div id="movies-view"></div><!-- Movies will get dumped here -->
     <div id="gifsDisplay"></div><!-- Movie GIFs will get dumped here -->
 
-  </div>
+  </div><!-- Container end -->
 
-<script src="assets/javascript/app.js"></script>
+<script src="assets/javascript/app.js"></script> <!-- Application -->
 </body>
 </html>

@@ -13,7 +13,7 @@ button, div, form {
 }
 
 header {
-	padding: 30px 0 !important;
+	padding: 20px 0 !important;
 	text-align: center;
 	background: #e2effc;
 }
@@ -94,8 +94,8 @@ ul {
     -webkit-column-break-inside: avoid;
     page-break-inside: avoid;
     break-inside: avoid;
-/*    margin-bottom: 2em;*/
 }
+
 .gif-thumb {
 	width: 100%;
     height: auto;
@@ -174,11 +174,16 @@ ul {
     float: right;
 }
 
-@media screen and (max-width:768px) {
+#copyButton:focus {
+	outline: none;
+}
+
+@media screen and (max-width:990px) {
 	#gifsDisplay {
 		-moz-column-count:3;
 	    -webkit-column-count:3;
 	    column-count:3;
+}
 }
 
 @media screen and (max-width:640px) {
@@ -187,10 +192,16 @@ ul {
 	    -webkit-column-count:2;
 	    column-count:2;
 }
+}
 
-@media screen and (max-width:368px) {
+@media screen and (max-width:420px) {
 	#gifsDisplay {
 		-moz-column-count:1;
 	    -webkit-column-count:1;
 	    column-count:1;
+}
+	.movie {
+		column-count: 1;
+    	width: 80%;
+	}
 }

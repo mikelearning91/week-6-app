@@ -1,25 +1,33 @@
+// Global Variables
 // Initial array of giph Movies
 var giphMovies = ["", "The Matrix", "The Notebook", "Mr. Nobody", "The Lion King", "Titanic", "The Accountant", "Homeward Bound"];
+// New movie typed into search input
 var addGiphMovie = [];
+// Rating data
 var hasRating;
+// Iframe url
 var hasEmbed;
+// Container for giph data
 var imgContainer;
+// Error message for invalid input into search input
 var messageAlert;
+// Copy to clipboard for iframe url
 var clipboard = new Clipboard('.btn');
 
 // Function for capturing and displaying the GIPHY data
 function displayMovieGifs() {
-          $("#gifsDisplay").empty();
+          $("#gifsDisplay").empty(); // Will empty gif display area on each new movie button click
           var addGiphMovie = $(this).attr("data-name");
           var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + addGiphMovie + "&limit=10&api_key=dc6zaTOxFJmzC";
-
+          // Ajax call to giphy api
           $.ajax({
                 url: queryURL,
                 method: "GET"
               })
           .done(function(response) {
-          // console.log(response);
-                //loops through data to find images and attach data-state/data-still on each image
+          // console.log(response); --> Use this to console.log all giph data
+
+                // Loops through data to find images and attach data-state/data-still on each image
                 for(i = 0; i < response.data.length; i++) {
                   imgContainer = $('<div class="left col-gif"><img class="gif-thumb" alt="" src="' + 
                   response.data[i].images.fixed_width_still.url 
@@ -29,15 +37,15 @@ function displayMovieGifs() {
                   response.data[i].images.fixed_width_still.url 
                   + '" /></div>');
 
-                  // Displays 'copy embed url' button
-                  hasEmbed = response.data[i].embed_url;
+                  // Displays 'copy iframe' button above each image
+                  hasEmbed = "<iframe src='" + response.data[i].embed_url + "' width='480' height='215' frameBorder='0' class='giphy-embed' allowFullScreen></iframe>";
                   if(response.data[i].embed_url === '') {
                     console.log("no embed_url");
                   } else {
-                    imgContainer.prepend('<button id="copyButton" class="btn" data-clipboard-text="' + hasEmbed + '">Copy Embed URL</button>');
+                    imgContainer.prepend('<button id="copyButton" class="btn" data-clipboard-text="' + hasEmbed + '">Copy iframe</button>');
                   }
 
-                  // Displays ratings above image
+                  // Displays ratings above each image
                   hasRating = response.data[i].rating.toUpperCase();
                   if(response.data[i].rating === '') {
                     imgContainer.prepend('<span class="rating">Rated: NR</span>');
@@ -46,14 +54,14 @@ function displayMovieGifs() {
                   }
 
                   $('#gifsDisplay').append(imgContainer);
-                } //end for loop
+                } // End for loop
 
-            $('.gif-thumb').on('click', gifClick); // triggers function to play/pause GIF on click
-          })
+            $('.gif-thumb').on('click', gifClick); // calls function to play/pause GIF on click
+          }) // End ajax response function
         
-}
+} // End function
 
-//play/pause gif onclick function
+// Play/pause gif onclick function
 function gifClick(event) {
   console.log(event);
   console.log('this data animate ' + $(event.target).data('animate'));
@@ -65,13 +73,13 @@ function gifClick(event) {
     } else {
         $(event.target).attr('src', $(event.target).data('still'));
         $(event.target).attr('data-state', 'still');
-    } // end if-else
-} // end gifClick
+    } // End if-else
+} // End gifClick
 
-// Function for rendering new buttons created by input
+// Function for rendering new buttons created by text/search input
 function renderButtons() {
 
-  // (this is necessary otherwise we will have repeat buttons)
+  // Necessary otherwise there will be repeat buttons everytime a new button is added)
   $("#movies-view").empty();
 
   // Looping through the array of movies
@@ -88,48 +96,46 @@ function renderButtons() {
     a.text(giphMovies[i]);
     // Added the button to the HTML
     $("#movies-view").append(a);
-  }
-}
+  } // End for loop
+} // End function
 
 
-// This function handles events when add movie/submit button is clicked
+// This function handles events when "GO"/submit button is clicked
 $("#add-movie").on("click", function(event) {
   event.preventDefault();
   $("#message").empty();
   // This line grabs the input from the textbox
   addGiphMovie = $("#movie-input").val().trim();
   console.log(addGiphMovie);
-  //only graps input if it does not equal any movies already listed
+  // Only graps input if it does not equal any movies already listed
   var foundTitle = false;
-  var letters = /^[a-zA-Z]+$/;
-  var lettersCheck = false;
   for (var m = 0; m < giphMovies.length; m++) {
     if(addGiphMovie.toUpperCase() == giphMovies[m].toUpperCase()) {
 
         foundTitle = true;
-    } 
-  }// The movie from the textbox is then added to giphMovies array
+    } // End if
+  }// End for loop
   
   if (foundTitle == true) {
-      //message pops up notifying user that the movie already exists in the list or need to add text
+      // Message pops up notifying user that the movie already exists in the list or need to add text tot he search input
       messageAlert = $("<div class='messageAlert'><ul><li>Invalid text entry</li><li>This movie may already be in the Movie List</li></div>");
       $("#message").html(messageAlert);
-  }
+  } // End if
 
   else {
-      // if input text doesn't match text in any of the 
-      //new buttons (addGiphMovie) will push into the giphMovies array
+      // If input text doesn't match text in any of the 
+      // New buttons (addGiphMovie) will push into the giphMovies array and create a new button
       giphMovies.push(addGiphMovie);
-    }
+    } // End else
 
-  // calling renderButtons function to render new buttons
+  // Calling function to render new buttons
   renderButtons();
-    // resets or "clears" input text after submit
-    $( 'form' ).each(function(){
+    // Resets or "clears" input text after submit
+    $( '#movie-form' ).each(function(){
     this.reset();
-  });
+  }); // End reset form function
 
-});
+}); // End onclick function
 
 // Function for displaying the movie GIFs on click of movie name button.
 // A click event listener to all elements with the class "movie".
