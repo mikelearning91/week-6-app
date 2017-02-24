@@ -32,7 +32,7 @@ ul {
     color: #b24f47;
 }
 
-#directions {
+#tip {
     margin-top: 60px;
 }
 
@@ -52,6 +52,10 @@ ul {
     -moz-border-radius: 5px;
     border: 1px solid #b24f47;
     background: #f0d8d8;
+}
+#message > div > ul > li {
+    font-family: Roboto !important;
+    letter-spacing: .02em;
 }
 
 #movie-form {
@@ -129,7 +133,6 @@ ul {
 	-moz-column-count:4;
     -webkit-column-count:4;
     column-count:4;
-
 }
 
 #add-movie {
