@@ -53,7 +53,7 @@ function displayMovieGifs() {
                     imgContainer.prepend('<span class="rating">Rated: ' + hasRating + '</span>');
                   }
 
-                  $('#gifsDisplay').hide().append(imgContainer).fadeIn();
+                  $('#gifsDisplay').hide().append(imgContainer).fadeIn('fast');
                 } // End for loop
             // This will hide the "tip" on .movie click
             $("#tip").fadeOut('fast');
