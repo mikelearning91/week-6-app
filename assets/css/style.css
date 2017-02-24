@@ -21,6 +21,7 @@ header {
 h1 {
 	font-size:33px !important;
 	font-family: Josefin Sans !important;
+	margin-bottom: 0;
 }
 
 ul {
