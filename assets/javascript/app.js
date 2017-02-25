@@ -25,11 +25,11 @@ function displayMovieGifs() {
                 method: "GET"
               })
           .done(function(response) {
-          // console.log(response); --> Use this to console.log all giph data
+          console.log(response);// --> Use this to console.log all giph data
 
                 // Loops through data to find images and attach data-state/data-still on each image
                 for(i = 0; i < response.data.length; i++) {
-                  imgContainer = $('<div class="left col-gif"><img class="gif-thumb" alt="" src="' + 
+                  imgContainer = $('<div class="left col-gif"><img class="gif-thumb" alt="movie gif" src="' + 
                   response.data[i].images.fixed_width_still.url 
                   + '" data-state="still" data-animate="' + 
                   response.data[i].images.fixed_width.url 
